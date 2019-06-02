@@ -1,11 +1,11 @@
 package vicdominguez;
 
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.List;
-
 import com.google.common.collect.Lists;
-import com.google.common.reflect.*;
+import com.google.common.reflect.ClassPath;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main
 {
@@ -33,22 +33,25 @@ public class Main
 
     private static Class menu(List<Class<?>> classes)
     {
-        int option;
+        int option, lastPointIndex, elementNumber = 1;
         Scanner sc = new Scanner(System.in);
         System.out.println("Pick a solution");
         do {
-            for (Class<?> item : classes)
-                System.out.println(item);
+            for (Class<?> item : classes) {
+                String name = item.getName(), pattern = "Option %d: solution %s";
+                lastPointIndex = name.lastIndexOf(".");
+                System.out.println(String.format(pattern, elementNumber, name.substring(lastPointIndex + 1)));
+                elementNumber++;
+            }
             option = sc.nextInt();
-        } while (option < 0 || option >= classes.size());
+        } while (option < 1 || option > classes.size());
 
-        return classes.get(option);
+        return classes.get(option - 1);
     }
 
-    private static void execute (Class solution) throws InstantiationException, IllegalAccessException
-    {
-        if(Runnable.class.isAssignableFrom(solution))
-        {
+    //TODO: fix newInstance() method
+    private static void execute(Class solution) throws InstantiationException, IllegalAccessException {
+        if (Runnable.class.isAssignableFrom(solution)) {
             Runnable item = (Runnable) solution.newInstance();
             item.run();
         }

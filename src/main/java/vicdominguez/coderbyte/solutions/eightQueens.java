@@ -1,12 +1,12 @@
 package vicdominguez.coderbyte.solutions;
 
 import java.util.Scanner;
-public class vEightQueens implements Runnable
+
+public class eightQueens implements Runnable
 {
     static class coordinates
     {
-        int x;
-        int y;
+        private int x, y;
         coordinates()
         {
             this.x = 0;
@@ -40,10 +40,12 @@ public class vEightQueens implements Runnable
     private static int BOARD_SIZE = 8;
     private static int ELEMENTS_TO_READ = 8;
     private static int ELEMENTS_SIZE = 5;
+
     private static Character[][] board;
     private static coordinates[] queensBuffer;
     private static coordinates coordinatesToReturn;
     private static Boolean endFound;
+
     private static void initBoard()
     {
         for(int row = 0; row < BOARD_SIZE; row++)
@@ -174,14 +176,15 @@ public class vEightQueens implements Runnable
         coordinatesToReturn.setY(1 + coordinatesToReturn.getY());
         if(endFound)
         {
-            result = "(" + Integer.toString(coordinatesToReturn.getX()) + "," + Integer.toString(coordinatesToReturn.getY()) + ")";
+            result = "(" + coordinatesToReturn.getX() + "," + coordinatesToReturn.getY() + ")";
         }
         else
             result = "true";
         return result;
     }
-    public void run()
-    {
+
+    //TODO: parmeterize this solution
+    public void run() {
         Scanner scan = new Scanner(System.in);
         String[] queens = {"(2,1)", "(4,2)", "(6,3)", "(8,4)", "(3,5)", "(1,6)", "(7,7)", "(5,8)"};
         System.out.print(EightQueens(queens));
