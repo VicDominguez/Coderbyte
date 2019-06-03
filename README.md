@@ -4,3 +4,4 @@ My solutions for Coderbyte challenges, written in Java. These solutions can be c
 Exercises completed:
 - Pentagonal number
 - Eight Queens (code must be improved)
+- Longest Word

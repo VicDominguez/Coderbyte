@@ -1,7 +1,10 @@
+# IntelliJ Idea
 .idea/
-.gradle/
-gradle/
 out/
 *.iml
 *.bat
+
+# Gradle
+.gradle/
+gradle/
 settings.gradle
