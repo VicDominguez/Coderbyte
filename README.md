@@ -5,3 +5,4 @@ Exercises completed:
 - Pentagonal number
 - Eight Queens (code must be improved)
 - Longest Word
+- Check Nums
