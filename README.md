@@ -6,3 +6,4 @@ Exercises completed:
 - Eight Queens (code must be improved)
 - Longest Word
 - Check Nums
+- Time Convert
