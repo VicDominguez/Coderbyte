@@ -7,3 +7,4 @@ Exercises completed:
 - Longest Word
 - Check Nums
 - Time Convert
+- Alphabet Soup
